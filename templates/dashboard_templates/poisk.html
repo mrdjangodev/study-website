@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Ознакомление с презентацией</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<!-- body -->
+
+				<div class="video">
+					<div class="video__head">
+
+						<a href="prezentatsiya.html" class="active">
+							<span>1</span>
+							<p>Ознакомление с презентацией</p>
+						</a>
+
+						<a href="videos.html" class="active">
+							<span>2</span>
+							<p>Просмотр видео</p>
+							<!-- <i class="bx bx-lock-alt"></i> -->
+						</a>
+
+						<a href="documents.html" class="active">
+							<span>3</span>
+							<p>Изучить документы</p>
+							<!-- <i class="bx bx-lock-alt"></i> -->
+						</a>
+
+						<a class="active">
+							<span>4</span>
+							<p>Поиск</p>
+							<!-- <i class="bx bx-lock-alt"></i> -->
+						</a>
+						<a href="test.html">
+							<span>5</span>
+							<p>Опрос</p>
+							<!-- <i class="bx bx-lock-alt"></i> -->
+						</a>
+					</div>
+
+					<!--
+					<video
+						controls
+						crossorigin
+						playsinline
+						poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+					>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+							type="video/mp4"
+							size="576"
+						/>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
+							type="video/mp4"
+							size="720"
+						/>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+							type="video/mp4"
+							size="1080"
+						/>
+
+						<!- Caption files ->
+						<track
+							kind="captions"
+							label="English"
+							srclang="en"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							default
+						/>
+						<track
+							kind="captions"
+							label="Français"
+							srclang="fr"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+						/>
+					</video>
+					-->
+
+					
+					<div class="video__content">
+						<h1>Возможно какой-то контент</h1>
+						<p>
+							Возможно какой-то параграф.
+						</p>
+						<p>
+							подключается tiny redaktor или Ckeditor
+						</p>
+
+						<a href="https://www.youtube.com/watch?v=7ja1-cMJMF0" target="_blank">
+							<p>ВИЧ-инфекция: история борьбы за право на жизнь (видео)</p>
+						</a>
+
+					</div>
+
+				
+
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

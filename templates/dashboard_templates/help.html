@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Help</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="help">
+						<div class="help__box">
+							<h1 class="help__title">Help</h1>
+							<a href="{% url 'help_handbook' %}" class="help__item">
+								<img src="{% static 'dashboard/assets/img/help-green.png' %}" alt="" />
+								<span>Instructions</span>
+							</a>
+							<a href="{% url 'help_terms' %}" class="help__item">
+								<img src="{% static 'dashboard/assets/img/help-blue.png' %}" alt="" />
+								<span>Terms of use</span>
+							</a>
+							<a href="{% url 'help_security' %}" class="help__item">
+								<img src="{% static 'dashboard/assets/img/help-red.png' %}" alt="" />
+								<span>
+									Security policy</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

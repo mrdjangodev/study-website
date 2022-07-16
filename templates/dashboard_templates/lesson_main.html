@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Ознакомление с презентацией</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<!-- body -->
+
+				<div class="video">
+					<div class="video__head">
+						<!-- Pyscript link --> 
+						<!--
+							
+							If student couldn't finish his corrent lesson yet he can't jump next second lesson
+							but his last lessons, current lesson and next first lesson are alway open for  him
+						-->
+						
+						{% for lesson in lessons  %}
+							{% if lesson == current_lesson %}
+								<a href="{% url 'local_lesson' course_section_id=lesson.section_id.id  pk=lesson.id %}" class="active">
+									<span>{{ forloop.counter }}</span>
+									<p>{{ lesson.name }}</p>
+								</a>
+							{% elif user in lesson.fn_l_users.all or lesson == next_lesson %}
+								
+								<a href="{% url 'local_lesson' course_section_id=lesson.section_id.id  pk=lesson.id %}" class="">
+									<span>{{ forloop.counter }}</span>
+									<p>{{ lesson.name }}</p>
+								</a>
+
+							{% else %}
+								<a class="disabled">
+									<span>{{ forloop.counter }}</span>
+									<p>{{ lesson.name }}</p>
+									<i class="bx bx-lock-alt"></i>
+								</a>
+							{% endif %}
+						{% endfor %}
+
+						{{lesson.section_id.id}}
+						{% if test_is_open %}
+							<a href="{% url 'test-view' pk_id=test.id %}" class="">
+								<span>{{ lessons.count|add:1 }}</span>
+								<p>Testing your knowladges</p>
+							</a>
+						{% else %}
+							<a class="disabled">
+								<span>{{ lessons.count|add:1 }}</span>
+								<p>Testing your knowladges</p>
+								<i class="bx bx-lock-alt"></i>
+							</a>
+						{% endif %}
+					</div>
+
+					<!--
+					<video
+						controls
+						crossorigin
+						playsinline
+						poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+					>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+							type="video/mp4"
+							size="576"
+						/>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
+							type="video/mp4"
+							size="720"
+						/>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+							type="video/mp4"
+							size="1080"
+						/>
+
+						<!- Caption files ->
+						<track
+							kind="captions"
+							label="English"
+							srclang="en"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							default
+						/>
+						<track
+							kind="captions"
+							label="Français"
+							srclang="fr"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+						/>
+					</video>
+					-->
+					{% if current_lesson.document %}
+						<iframe
+							src="https://docs.google.com/viewer?url={{ current_lesson.document.url }}&embedded=True"
+							style="width: 100%; height: 600px"
+							frameborder="0"
+							>Ваш браузер не поддерживает фреймы</iframe>
+					{% endif %}
+					<video
+						controls
+						crossorigin
+						playsinline
+						poster="{% if current_lesson.image_video %}{{ current_lesson.image_video.url }}{% endif %}"
+					>
+					{% if current_lesson.video %}
+						<source
+							src="{{ current_lesson.video.url }}"
+							type="video/mp4"
+							size="576"
+						/>
+						<source
+							src="{{ current_lesson.video.url }}"
+							type="video/mp4"
+							size="720"
+						/>
+						<source
+							src="{{ current_lesson.video.url }}"
+							type="video/mp4"
+							size="1080"
+						/>
+					{% endif %}
+						<!-- Caption files -->
+						<track
+							kind="captions"
+							label="English"
+							srclang="en"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							default
+						/>
+						<track
+							kind="captions"
+							label="Français"
+							srclang="fr"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+						/>
+					</video>
+
+					<div class="video__content">
+						{{ current_lesson.description|safe }}
+					</div>
+
+					қва
+
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

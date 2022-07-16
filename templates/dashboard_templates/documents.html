@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<!-- title -->
+	<title>Ресурсы</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="video__head">
+
+						<a href="prezentatsiya.html" class="active">
+							<span>1</span>
+							<p>Ознакомление с презентацией</p>
+						</a>
+
+						<a href="videos.html" class="active">
+							<span>2</span>
+							<p>Просмотр видео</p>
+						</a>
+
+						<a class="active">
+							<span>3</span>
+							<p>Изучить документы</p>
+						</a>
+						<a href="poisk.html" >
+							<span>4</span>
+							<p>Поиск</p>
+							<!-- <i class="bx bx-lock-alt"></i> -->
+						</a>
+						<a class="disabled">
+							<span>5</span>
+							<p>Опрос</p>
+							<i class="bx bx-lock-alt"></i>
+						</a>
+					</div>
+
+					<div class="files">
+
+						<div class="file document">
+							<div class="file__name">
+								<i class="bx bx-folder"></i>
+								<span>Закон о ВИЧ</span>
+							</div>
+
+							<div class="file__size"></div>
+							<a href="https://www.lex.uz/acts/2240472" target="_blank" class="btn">Открыть</a>
+							<!-- <a href="#" class="btn">Скачать</a> -->
+						</div>
+
+						<div class="file document">
+							<div class="file__name">
+								<i class="bx bx-folder"></i>
+								<span>Руководство ВОЗ (2014 г.)</span>
+							</div>
+
+							<div class="file__size">34Mb</div>
+							<a href="https://apps.who.int/iris/bitstream/handle/10665/161724/9789289051392_rus.pdf?sequence=1&isAllowed=y" target="_blank" class="btn">Открыть</a>
+							<a href="#" class="btn">Скачать</a>
+						</div>
+						<div class="file document">
+							<div class="file__name">
+								<i class="bx bx-folder"></i>
+								<span>Ещё что-то</span>
+							</div>
+
+							<div class="file__size">34Mb</div>
+							<a href="#" target="_blank" class="btn">Открыть</a>
+							<a href="#" class="btn">Скачать</a>
+						</div>
+					</div>
+
+					<div class="pagination">
+						<a href="#" class="pagination__btn">1</a>
+						<a href="#" class="pagination__btn">2</a>
+						<a href="#" class="pagination__btn">3</a>
+						<span class="pagination__dots">...</span>
+						<a href="#" class="pagination__btn">9</a>
+						<a href="#" class="pagination__btn">10</a>
+					</div>
+				</div>
+
+				<div class="video">
+				<div class="video__content">
+						<h1>Вот будет название этой презентации</h1>
+						<p>
+							Давно выяснено, что при оценке дизайна и композиции читаемый текст
+							мешает сосредоточиться. Lorem Ipsum используют потому, что тот
+							обеспечивает более или менее стандартное заполнение шаблона, а
+							также реальное распределение букв и пробелов в абзацах, которое не
+							получается при простой дубликации "Здесь ваш текст.. Здесь ваш
+							текст.. Здесь ваш текст.." Многие программы электронной вёрстки и
+							редакторы HTML используют Lorem Ipsum в качестве текста по
+							умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу
+							показывает, как много веб-страниц всё ещё дожидаются своего
+							настоящего рождения. За прошедшие годы текст Lorem Ipsum получил
+							много версий. Некоторые версии появились по ошибке, некоторые -
+							намеренно (например, юмористические варианты).
+						</p>
+						<p>
+							Давно выяснено, что при оценке дизайна и композиции читаемый текст
+							мешает сосредоточиться. Lorem Ipsum используют потому, что тот
+							обеспечивает более или менее стандартное заполнение шаблона, а
+							также реальное распределение букв и пробелов в абзацах, которое не
+							получается при простой дубликации "Здесь ваш текст.. Здесь ваш
+							текст.. Здесь ваш текст.." Многие программы электронной вёрстки и
+							редакторы HTML используют Lorem Ipsum в качестве текста по
+							умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу
+							показывает, как много веб-страниц всё ещё дожидаются своего
+							настоящего рождения. За прошедшие годы текст Lorem Ipsum получил
+							много версий. Некоторые версии появились по ошибке, некоторые -
+							намеренно (например, юмористические варианты).
+						</p>
+					</div>
+				</div>
+
+			</main>
+		</div>
+
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>resources</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="store">
+						<a href="{% url 'resources-inner' type='books' %}" class="store__item">
+							<i class="bx bx-folder"></i>
+							<span>Books</span>
+						</a>
+						<a href="{% url 'resources-inner' type='articles' %}" class="store__item">
+							<i class="bx bx-folder"></i>
+							<span>Articles</span>
+						</a>
+						<a href="{% url 'resources-inner' type='scientific_article' %}" class="store__item">
+							<i class="bx bx-folder"></i>
+							<span>Scientific articles</span>
+						</a>
+						<a href="{% url 'resources-inner' type='usefull' %}" class="store__item">
+							<i class="bx bx-folder"></i>
+							<span>Usefull</span>
+						</a>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

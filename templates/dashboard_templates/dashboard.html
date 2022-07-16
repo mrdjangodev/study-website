@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Dashboard</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="dash">
+						<div class="dash__box">
+							<div class="dash__nav">
+								<div class="dash__btn">
+									<span>Настройки</span>
+									<div class="dash__triangle"></div>
+								</div>
+								<div class="dash__nav__box">
+									<div class="dash__nav__item active" data-nav="personal">
+										Личные данные
+									</div>
+									<div class="dash__nav__item" data-nav="password">
+										Изменить пароль
+									</div>
+									<div class="dash__nav__item" data-nav="language">
+										Смена языка
+									</div>
+									<div class="dash__nav__item" data-nav="phone">
+										Изменить e-mail
+									</div>
+								</div>
+							</div>
+							<div class="dash__main">
+								<!-- personal settings -->
+								<div class="dash__item dash__item--personal active">
+									<div class="dash__header">
+										<div class="dash__photo">
+											<img src="{% static 'dashboard/assets/img/avatar-transparent.svg' %}" alt="" />
+										</div>
+										<div class="dash__header__content">
+											<h1>Изменить фото</h1>
+											<label for="dash__file">
+												<span>выберите фото</span>
+												<svg
+													viewBox="0 0 41 31"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														d="M33.1495 12.5821C32.7326 6.17675 28.2441 0 20.0119 0C12.4825 0 6.67617 5.55384 6.36867 12.9657C2.24914 14.2377 0 18.6126 0 21.7969C0 26.6997 4.10586 31 8.78571 31H15.131C15.2604 31 15.3846 30.949 15.4761 30.8581C15.5676 30.7673 15.619 30.6441 15.619 30.5156C15.619 30.3872 15.5676 30.264 15.4761 30.1731C15.3846 30.0823 15.2604 30.0312 15.131 30.0312H8.78571C4.62519 30.0312 0.97619 26.1834 0.97619 21.7969C0.97619 18.8412 3.58652 13.5625 8.78571 13.5625H10.25C10.3795 13.5625 10.5036 13.5115 10.5951 13.4206C10.6867 13.3298 10.7381 13.2066 10.7381 13.0781C10.7381 12.9497 10.6867 12.8265 10.5951 12.7356C10.5036 12.6448 10.3795 12.5938 10.25 12.5938H8.78571C8.28883 12.5938 7.81929 12.649 7.36145 12.7284C7.74412 6.92559 12.1887 0.96875 20.0119 0.96875C28.3954 0.96875 32.2143 7.49716 32.2143 13.5625V15.0156C32.2143 15.1441 32.2657 15.2673 32.3572 15.3581C32.4488 15.449 32.5729 15.5 32.7024 15.5C32.8318 15.5 32.956 15.449 33.0475 15.3581C33.139 15.2673 33.1905 15.1441 33.1905 15.0156V13.5625V13.5538C36.1376 13.8744 40.0238 17.0132 40.0238 21.7969C40.0238 25.5033 36.4207 30.0312 32.2143 30.0312H24.8929C21.732 30.0312 20.5 28.8087 20.5 25.6719V12.3835L24.4809 16.3263C24.5259 16.3727 24.5797 16.4096 24.6392 16.4351C24.6987 16.4606 24.7627 16.474 24.8275 16.4747C24.8923 16.4753 24.9566 16.4631 25.0166 16.4389C25.0767 16.4146 25.1312 16.3787 25.1771 16.3333C25.223 16.2879 25.2593 16.2339 25.2839 16.1744C25.3086 16.1149 25.321 16.0511 25.3205 15.9868C25.3201 15.9225 25.3067 15.8589 25.2812 15.7998C25.2557 15.7407 25.2186 15.6872 25.172 15.6424L20.8173 11.3295C20.2374 10.756 19.7874 10.756 19.2085 11.3295L14.8537 15.6424C14.7648 15.7338 14.7156 15.8561 14.7167 15.9831C14.7178 16.1101 14.7692 16.2316 14.8597 16.3214C14.9502 16.4112 15.0726 16.4622 15.2006 16.4633C15.3285 16.4644 15.4518 16.4155 15.5439 16.3273L19.5238 12.3835V25.6719C19.5238 29.357 21.1794 31 24.8929 31H32.2143C36.9459 31 41 25.9393 41 21.7969C41 16.7913 36.8775 12.8766 33.1495 12.5821Z"
+													/>
+												</svg>
+											</label>
+											<p id="dash__filename"></p>
+											<input
+												type="file"
+												accept="image/*"
+												id="dash__file"
+												style="display: none"
+											/>
+										</div>
+									</div>
+									<form class="form">
+										<!-- input -->
+										<div class="input__wrapper">
+											<p class="input__label">Ismni o’zgartirish</p>
+											<div class="input__box">
+												<input
+													class="input"
+													type="text"
+													placeholder="Ismingiz"
+													value="Muhammad"
+													required
+													maxlength="20"
+												/>
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<!-- input -->
+										<div class="input__wrapper">
+											<p class="input__label">Familiyani o’zgaritish</p>
+											<div class="input__box">
+												<input
+													class="input"
+													type="text"
+													placeholder="Familiya"
+													value="Isoyev"
+													required
+													maxlength="20"
+												/>
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<!-- input -->
+										<div class="input__wrapper">
+											<p class="input__label">Sharifini o’zgaritish</p>
+											<div class="input__box">
+												<input
+													class="input"
+													type="text"
+													placeholder="Ma’lumotni kiriting"
+													required
+													maxlength="20"
+												/>
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<div class="form__footer">
+											<a class="btn btn--gray" href="#">Отмена</a>
+											<button class="btn">Сохранить</button>
+										</div>
+									</form>
+								</div>
+								<!-- password change -->
+								<div class="dash__item dash__item--password">
+									<form class="form">
+										<!-- input -->
+										<div class="input__wrapper">
+											<p class="input__label">Старый пароль</p>
+											<div class="input__box">
+												<input class="input" type="text" />
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<!-- input -->
+										<div class="input__wrapper">
+											<p class="input__label">Новый пароль</p>
+											<div class="input__box">
+												<input class="input" type="text" />
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<!-- input -->
+										<div class="input__wrapper">
+											<p class="input__label">Введите снова новый пароль</p>
+											<div class="input__box">
+												<input class="input" type="text" />
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<div class="form__footer">
+											<a class="btn btn--gray" href="#">Отмена</a>
+											<button class="btn">Сохранить</button>
+										</div>
+									</form>
+								</div>
+								<!-- language switcher -->
+								<div class="dash__item dash__item--language">
+									<form class="form">
+										<!-- select -->
+										<div class="input__wrapper language">
+											<div class="input__box">
+												<input readonly class="input select" value="O'zbek" />
+
+												<!-- select btn -->
+												<div class="input__btn">
+													<div class="input__triangle"></div>
+												</div>
+
+												<!-- custom options -->
+												<div class="input__list">
+													<ul>
+														<li>
+															<label
+																for="labguage2"
+																class="input__option"
+																aria-hidden="aria-hidden"
+															>
+																Руский
+															</label>
+														</li>
+														<li>
+															<label
+																for="labguage3"
+																class="input__option"
+																aria-hidden="aria-hidden"
+															>
+																English
+															</label>
+														</li>
+													</ul>
+												</div>
+
+												<!-- hidden radio inputs -->
+												<div class="input__group">
+													<input
+														type="radio"
+														id="labguage1"
+														name="labguage"
+														value="O'zbek"
+														checked
+													/>
+													<input
+														type="radio"
+														id="labguage2"
+														name="labguage"
+														value="Руский"
+													/>
+													<input
+														type="radio"
+														id="labguage3"
+														name="labguage"
+														value="English"
+													/>
+												</div>
+											</div>
+										</div>
+										<div class="form__footer">
+											<a class="btn btn--gray" href="#">Отмена</a>
+											<button class="btn">Сохранить</button>
+										</div>
+									</form>
+								</div>
+								<!-- e-mail change -->
+								<div class="dash__item dash__item--phone">
+									<form class="form">
+										<div class="form__flash">
+											Неправильный код подтверждение
+										</div>
+										<div class="input__wrapper phone">
+											<p class="input__label">Изменить e-mail</p>
+											<div class="input__box">
+												<input
+													type="text"
+													name="phone"
+													class="input"
+													value="muhammad1@gmail.com"
+												/>
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<div class="input__wrapper phone">
+											<p class="input__label">Код подтверждение</p>
+											<div class="input__box">
+												<input type="text" class="input" />
+												<img
+													class="input__cancel"
+													src="{% static 'dashboard/assets/img/cancel.png' %}"
+													alt=""
+												/>
+											</div>
+										</div>
+										<div class="form__footer">
+											<a class="btn btn--gray" href="#">Отмена</a>
+											<button class="btn">Сохранить</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

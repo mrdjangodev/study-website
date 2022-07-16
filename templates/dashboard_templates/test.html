@@ -1,0 +1,333 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Test</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+				<div class="container">
+					<!-- body -->
+
+					<div class="tests">
+						<div class="test__head">
+							<p>Countdown</p>
+							<!-- data-time 300 seconds -->
+							<span class="test__time" data-time="{{time_for_default_template}}"></span>
+							<div class="test__progress">
+								<span></span>
+							</div>
+							<ul class="test__nums">
+                                {% for question in questions %}
+                                    <li {% if forloop.counter == 1 %} class="active" {% endif %} data-test="test-{{ forloop.counter }}">{{ forloop.counter }}</li>
+                                {% endfor %}
+							</ul>
+						</div>
+						<form action="#" class="test__body loaded" method="POST" id="test-form"
+							time-data="{{ test.duration }}"
+							data-test-id="{{test.id}}">
+                            {% csrf_token %}
+                            {% for question in questions %}
+                                <div class="test test-{{ forloop.counter }} {% if forloop.counter == 1 %} active {% endif %}">
+                                    <p>
+                                        {{ forloop.counter }}. {{ question.text }}
+                                    </p>
+                                    <ul>
+										{% for answer in question.get_answers %}
+											<li>
+												<label name='answers' for="test-{{ question.id }}-{{answer.id}}"
+													>{{ answer }}</label
+												>
+											</li>
+										{% endfor %} 
+                                        {% comment %} <li>
+                                            <label name='answers' for="test-{{ forloop.counter }}-2"
+                                                >{{ question.answer2 }}</label
+                                            >
+                                        </li>
+                                        <li>
+                                            <label name='answers' for="test-{{ forloop.counter }}-3"
+                                                >{{ question.answer3 }}</label
+                                            >
+                                        </li>
+                                        <li>
+                                            <label name='answers' for="test-{{ forloop.counter }}-4"
+                                                >{{ question.answer4 }}</label
+                                            >
+                                        </li> {% endcomment %}
+                                    </ul>
+									{% for answer in question.get_answers %}
+										<input
+											class = 'answer'
+											style="display: none"
+											type="radio"
+											id="test-{{ question.id }}-{{ answer.id }}"
+											name="{{ question.id }}"
+											value="{{ answer }}"
+										/>
+									{% endfor %}
+                                    {% comment %} <input
+                                        style="display: none"
+                                        type="radio"
+                                        id="test-{{ forloop.counter }}-2"
+                                        name="answer"
+                                        value="{{question.answer2}}"
+                                    />
+                                    <input
+                                        style="display: none"
+                                        type="radio"
+                                        id="test-{{ forloop.counter }}-3"
+                                        name="answer"
+                                        value="{{question.answer3}}"
+                                    />
+                                    <input
+                                        style="display: none"
+                                        type="radio"
+                                        id="test-{{ forloop.counter }}-4"
+                                        name="answer"
+                                        value="{{ question.answer4 }}"
+                                    /> {% endcomment %}
+                                </div>
+                            {% endfor %}
+							{% comment %} <div class="test test-2">
+								<p>
+									2. 14/16 karsning qisqartilishidan hosil bo’lgan kasrni ...
+								</p>
+								<ul>
+									<li>
+										<label for="test-2-1"
+											>Surati 8ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-2-2"
+											>Surati 8ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-2-3"
+											>Surati 7ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-2-4"
+											>Surati 7ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+								</ul>
+
+								<input
+									style="display: none"
+									type="radio"
+									id="test-2-1"
+									name="test-2"
+									value="1"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-2-2"
+									name="test-2"
+									value="2"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-2-3"
+									name="test-2"
+									value="3"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-2-4"
+									name="test-2"
+									value="4"
+								/>
+							</div>
+							<div class="test test-3">
+								<p>
+									3. 14/16 karsning qisqartilishidan hosil bo’lgan kasrni ...
+								</p>
+								<ul>
+									<li>
+										<label for="test-3-1"
+											>Surati 8ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-3-2"
+											>Surati 8ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-3-3"
+											>Surati 7ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-3-4"
+											>Surati 7ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+								</ul>
+
+								<input
+									style="display: none"
+									type="radio"
+									id="test-3-1"
+									name="test-3"
+									value="1"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-3-2"
+									name="test-3"
+									value="2"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-3-3"
+									name="test-3"
+									value="3"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-3-4"
+									name="test-3"
+									value="4"
+								/>
+							</div>
+							<div class="test test-4">
+								<p>
+									4. 14/16 karsning qisqartilishidan hosil bo’lgan kasrni ...
+								</p>
+								<ul>
+									<li>
+										<label for="test-4-1"
+											>Surati 8ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-4-2"
+											>Surati 8ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-4-3"
+											>Surati 7ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-4-4"
+											>Surati 7ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+								</ul>
+
+								<input
+									style="display: none"
+									type="radio"
+									id="test-4-1"
+									name="test-4"
+									value="1"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-4-2"
+									name="test-4"
+									value="2"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-4-3"
+									name="test-4"
+									value="3"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-4-4"
+									name="test-4"
+									value="4"
+								/>
+							</div>
+							<div class="test test-5">
+								<p>
+									5. 14/16 karsning qisqartilishidan hosil bo’lgan kasrni ...
+								</p>
+								<ul>
+									<li>
+										<label for="test-5-1"
+											>Surati 8ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-5-2"
+											>Surati 8ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-5-3"
+											>Surati 7ga maxraji 16ga teng bo’ladi</label
+										>
+									</li>
+									<li>
+										<label for="test-5-4"
+											>Surati 7ga maxraji 14ga teng bo’ladi</label
+										>
+									</li>
+								</ul>
+
+								<input
+									style="display: none"
+									type="radio"
+									id="test-5-1"
+									name="test-5"
+									value="1"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-5-2"
+									name="test-5"
+									value="2"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-5-3"
+									name="test-5"
+									value="3"
+								/>
+								<input
+									style="display: none"
+									type="radio"
+									id="test-5-4"
+									name="test-5"
+									value="4"
+								/>
+							</div> {% endcomment %}
+							<a class="btn prev">Prev</a>
+							<a class="btn next active">Next</a>
+							<button class="btn" id="button-to-save" type="submit">Finish</button>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+	<script src="{% static 'extra/js/test.js' %}"></script>
+</html>

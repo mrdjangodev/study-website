@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>resources</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="files">
+						{% for resource in paginated_resources2 %}
+							<div class="file">
+								<div class="file__name">
+									<i class="bx bx-folder"></i>
+									<span>{{resource.name}}</span>
+								</div>
+								<div class="file__date"><small>{{resource.uploaded_at}}</small></div>
+								<div class="file__size">{{resource.get_size}} mb</div>
+								{% comment %} <a href="#" class="btn">Open</a> {% endcomment %}
+								<a href="{% url 'download-file' pk=resource.id %}" class="btn">Download</a>
+							</div>
+						{% endfor %}
+						
+					</div>
+
+					<div class="pagination">
+						{% for pg in pagination.page_range %}
+							{% if paginated_resources.number == pg %}
+								<a href="?page={{ pg }}" class="pagination__btn active">{{pg}}</a>
+							{% else %}
+								<a href="?page={{ pg }}" class="pagination__btn active">{{pg}}</a>
+							{% endif %}
+						{% endfor %}
+						{% comment %} <a href="#" class="pagination__btn">2</a>
+						<a href="#" class="pagination__btn">3</a>
+						<span class="pagination__dots">...</span>
+						<a href="#" class="pagination__btn">9</a>
+						<a href="#" class="pagination__btn">10</a> {% endcomment %}
+					</div>
+				</div>
+			</main>
+		</div>
+
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

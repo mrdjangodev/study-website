@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Course info</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<!-- course info -->
+					<div class="info">
+						<div class="info__photo__wrapper">
+							<div class="info__photo">
+								<img
+									src="{{ course.image.url }}"
+									alt=""
+								/>
+							</div>
+						</div>
+						<div class="info__content">
+							<h1>{{ course.name }}</h1>
+							<p>Teacher: {{ course.teacher }}</p>
+							<!--
+							<a href="videos.html" class="btn">Начать</a>
+						-->
+						</div>
+					</div>
+
+					<!-- tab -->
+					<div class="tab">
+						<div class="tab__head">
+							<span class="active" data-tab="tab1">Description</span>
+							{% comment %} <span data-tab="tab2">Какой то раздел</span> {% endcomment %}
+						</div>
+						<div class="tab__body tab1 active">
+							{{ course.description | safe }}
+						</div>
+						{% comment %} <div class="tab__body tab2">
+						<h2>Что дожно быть</h2>
+						<ul>
+							<li>интернет</li>
+							<li>shaxsiy kompyuter yoki mobil telefon</li>
+							<li>понимание русского языка</li>
+						</ul>
+						<h2>Короткая информация</h3>
+						<p>
+							Oliy ta’lim muassalariga, chet el ta’lim dargohlariga , harbiy oliy bilim
+							yurtlariga o’qishga topshirish istagida bo’lganlar uchun to’liq
+							mavzulashtirilgan kurs.
+						</p>
+						<p>
+							Kurs davomiyligi 10oyni tashkil etadi. Kurs modullarga bo’lingan holda
+							olib boriladi, modul 1oyga mo’ljallangan demak 10ta modul mavjud, har bir
+							modulda 12tadan dars bo’lib darslar intensiv tarzda o’tiladi, dars
+							so’ngida test bilan o’zlashtirish natijalari hisoblab boriladi,
+							belgilangan ballni yig’a olmasangiz keyngi darsga va keyngi modulga o’ta
+							olmaysiz. kurs uchun to’lovlar xar bir modul uchun alohida to’lash
+							imkoniyati mavjud.
+						</p>
+						<p>
+							Har oy kurs mualliflari tomonidan umumiy test olinadi, olingan test
+							natijalari asosida reyting jadval yuritiladi.
+						</p>
+						<p>
+							O’zlashtirishi past bo’lgan bollar bilan alohida zoom dasturi orqali
+							alohida shug’ullaniladi. Biriktirilgan mentorlar bilan to’g’ridan to’g’ri
+							muloqot qilish imkoniyati mavjud.
+						</p></div>
+					</div> {% endcomment %}
+					<div class="moduls">
+						<h1>Course sections</h1>
+						{% for c_section in course_sections  %}
+							<div class="moduls__item">
+								<div class="moduls__box">
+									<div class="about__item" data-aos="zoom-in-down">
+										<div class="about__box">
+											<img src="{{ c_section.image.url }}" alt="" />
+										
+										</div> 
+									</div>
+									<div class="moduls__header">
+										<p>{{ c_section.description }}</p>
+										
+									</div>
+									<b>Lessons: {{ c_section.count_lessons }} </b>
+									<a href="{% url 'lesson_main' pk=c_section.id %}" target="_blank">Start</a>
+								</div>
+							</div>
+						{% endfor %}
+						
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

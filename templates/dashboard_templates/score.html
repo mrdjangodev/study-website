@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Score</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="score">
+						<p>Result test named: {{test.title}}</p>
+						{% for result in list_results  %}
+							{% if result.extra_result.is_passed %}
+								<div class="score__box">
+									<div class="score-result">
+										<svg viewBox="0 0 36 36" class="score-chart green">
+											<path
+												class="score-circle-bg"
+												d="M18 2.0845
+													a 15.9155 15.9155 0 0 1 0 31.831
+													a 15.9155 15.9155 0 0 1 0 -31.831"
+											/>
+											<path
+												class="score-circle"
+												stroke-dasharray="{{result.extra_result.result}}, 100"
+												d="M18 2.0845
+													a 15.9155 15.9155 0 0 1 0 31.831
+													a 15.9155 15.9155 0 0 1 0 -31.831"
+											/>
+											<text x="18" y="20.35" class="score-percentage">{{result.extra_result.result}}%</text>
+										</svg>
+									</div>
+									<ul>
+										<li>
+											<span>Correct answers:</span>
+											<span>{{ result.extra_result.correct_answers }}</span>
+										</li>
+										<li>
+											<span>Incorrect answers:</span>
+											<span>{{result.extra_result.incorrect_answers}}</span>
+										</li>
+										<li>
+											<span>Worked at:</span>
+											<span>{{result.extra_result.created_at}}</span>
+										</li>
+										<li>
+											<p style="color: #a1d9be">
+												<svg
+													width="27"
+													height="29"
+													viewBox="0 0 27 29"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														d="M25.5 8H21.972C22.3005 7.3145 22.5 6.5585 22.5 5.75C22.5 2.855 20.145 0.5 17.25 0.5C15.7815 0.5 14.454 1.1105 13.5 2.087C13.0128 1.58519 12.4299 1.18618 11.7858 0.913593C11.1417 0.641004 10.4494 0.500366 9.75 0.5C6.855 0.5 4.5 2.855 4.5 5.75C4.5 6.5585 4.6995 7.3145 5.028 8H1.5C1.10218 8 0.720644 8.15804 0.43934 8.43934C0.158035 8.72064 0 9.10218 0 9.5V15.5C0 15.8978 0.158035 16.2794 0.43934 16.5607C0.720644 16.842 1.10218 17 1.5 17V24.5C1.5 26.981 3.519 29 6 29H21C23.481 29 25.5 26.981 25.5 24.5V17C25.8978 17 26.2794 16.842 26.5607 16.5607C26.842 16.2794 27 15.8978 27 15.5V9.5C27 9.10218 26.842 8.72064 26.5607 8.43934C26.2794 8.15804 25.8978 8 25.5 8ZM24 14H16.5V11H24V14ZM12 6.5H15V8H12V6.5ZM15 11V14H12V11H15ZM17.25 3.5C18.4905 3.5 19.5 4.5095 19.5 5.75C19.5 6.9905 18.4905 8 17.25 8C16.9933 7.99677 16.7393 7.94749 16.5 7.8545V6.5C16.4981 6.12744 16.3563 5.76921 16.1026 5.49635C15.8489 5.2235 15.5019 5.05597 15.1305 5.027C15.2804 4.5832 15.5653 4.19739 15.9454 3.92358C16.3254 3.64976 16.7816 3.50166 17.25 3.5V3.5ZM7.5 5.75C7.5 4.5095 8.5095 3.5 9.75 3.5C10.7355 3.5 11.5665 4.142 11.8695 5.027C11.4981 5.05597 11.1511 5.2235 10.8974 5.49635C10.6437 5.76921 10.5019 6.12744 10.5 6.5V7.8545C10.2607 7.94749 10.0067 7.99677 9.75 8C8.5095 8 7.5 6.9905 7.5 5.75ZM10.5 11V14H3V11H10.5ZM6 26C5.1735 26 4.5 25.3265 4.5 24.5V15.5H10.5V26H6ZM12 26V15.5H15V26H12ZM21 26H16.5V15.5H22.5V24.5C22.5 25.3265 21.8265 26 21 26Z"
+														fill="#A5D9A1"
+													/>
+												</svg>
+
+												<a>Open next section</a>
+											</p>
+										</li>
+									</ul>
+								</div>
+							{% else %}
+								<div class="score__box">
+									<div class="score-result">
+										<svg viewBox="0 0 36 36" class="score-chart orange">
+											<path
+												class="score-circle-bg"
+												d="M18 2.0845
+													a 15.9155 15.9155 0 0 1 0 31.831
+													a 15.9155 15.9155 0 0 1 0 -31.831"
+											/>
+											<path
+												class="score-circle"
+												stroke-dasharray="{{result.extra_result.result}}, 100"
+												d="M18 2.0845
+													a 15.9155 15.9155 0 0 1 0 31.831
+													a 15.9155 15.9155 0 0 1 0 -31.831"
+											/>
+											<text x="18" y="20.35" class="score-percentage">{{result.extra_result.result}}%</text>
+										</svg>
+									</div>
+									<ul>
+										<li>
+											<span>Correct answers:</span>
+											<span>{{ result.extra_result.correct_answers }}</span>
+										</li>
+										<li>
+											<span>Incorrect answers:</span>
+											<span>{{result.extra_result.incorrect_answers}}</span>
+										</li>
+										<li>
+											<span>Worked at:</span>
+											<span>{{result.extra_result.created_at}}</span>
+										</li>
+										<li>
+											<p style="color: #ffa097">
+												<svg
+													width="36"
+													height="36"
+													viewBox="0 0 36 36"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														d="M18 3C9.729 3 3 9.729 3 18C3 26.271 9.729 33 18 33C26.271 33 33 26.271 33 18C33 9.729 26.271 3 18 3ZM18 30C11.3835 30 6 24.6165 6 18C6 11.3835 11.3835 6 18 6C24.6165 6 30 11.3835 30 18C30 24.6165 24.6165 30 18 30Z"
+														fill="#FFA097"
+													/>
+													<path
+														d="M12.75 18C13.9926 18 15 16.9926 15 15.75C15 14.5074 13.9926 13.5 12.75 13.5C11.5074 13.5 10.5 14.5074 10.5 15.75C10.5 16.9926 11.5074 18 12.75 18Z"
+														fill="#FFA097"
+													/>
+													<path
+														d="M23.2395 17.979C24.4763 17.979 25.479 16.9763 25.479 15.7395C25.479 14.5027 24.4763 13.5 23.2395 13.5C22.0027 13.5 21 14.5027 21 15.7395C21 16.9763 22.0027 17.979 23.2395 17.979Z"
+														fill="#FFA097"
+													/>
+													<path
+														d="M18 21C13.5 21 12 25.5 12 25.5H24C24 25.5 22.5 21 18 21Z"
+														fill="#FFA097"
+													/>
+												</svg>
+
+												<a>Repead one more time this section </a>
+											</p>
+										</li>
+									</ul>
+								</div>
+							{% endif %}
+						{% endfor %}
+						<a href="{% url 'dashboard_index' %}" class="btn">
+							Go home</a>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

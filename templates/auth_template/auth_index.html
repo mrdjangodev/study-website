@@ -1,0 +1,278 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- meta -->
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Bilol Tuliboev" />
+		<meta name="robots" content="index, follow, noodp" />
+		<meta name="googlebot" content="index, follow" />
+		<meta name="google" content="notranslate" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+
+		<!-- css -->
+		<link rel="stylesheet" href="{% static 'auth/assets/css/style.css' %}" />
+
+		<!-- title -->
+		<title>Авторизация</title>
+	</head>
+	<body>
+		<div class="page">
+			<!-- header -->
+			<header class="header">
+				<div class="container">
+					<div class="header__box">
+						<a href="#" class="header__logo">
+							<img src="{% static 'auth/assets/img/logo.svg' %}" alt="" />
+						</a>
+						<div class="header__lang">
+							<img src="{% static 'auth/assets/img/globe.png' %}" alt="" class="header__globe" />
+							<div class="header__lang__list">
+								<a href="#">
+									<img src="{% static 'auth/assets/img/uzbekistan-flag-png-large.png' %}" alt="" />
+									<span>O'zbekcha</span>
+								</a>
+
+								<a href="#">
+									<img src="{% static 'auth/assets/img/russia-flag-png-large.png' %}" alt="" />
+									<span>Руский</span>
+								</a>
+								<a href="#">
+									<img
+										src="{% static 'auth/assets/img/united-kingdom-flag-png-large.png' %}"
+										alt=""
+									/>
+									<span>English</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- auth -->
+			<div class="auth__container">
+				<div class="auth">
+					<div class="auth__header">
+						<div class="auth__header__item {% if page == 'login' %}active{% endif %}" data-auth="login">Login</div>
+						<div class="auth__header__item {% if page == '' %}active{% endif %}" data-auth="register">
+							Registration
+						</div>
+					</div>
+
+					<!-- Login -->
+					<div class="auth__body auth__body--login {% if page == 'login' %} active {% endif %}">
+						<div class="auth__title">Login</div>
+						<!-- Login Error Flash -->
+						{% if messages %}
+							{% for message in messages %}
+								<div class="auth__flash">
+									{% if message.tags == 'error' %}
+										{{message}}
+									{% endif %}
+								</div>
+							{% endfor %}
+						{% endif %}
+						<form action="{% url 'register_login' data='login_act' %}" method="POST" class="auth__form">
+							{% csrf_token %}
+							<div class="auth__input__box">
+								<input
+									name='email'
+									type="email"
+									class="auth__input"
+									placeholder="email"
+									required
+								/>
+							</div>
+							<div class="auth__input__box">
+								<input
+									name='password'
+									type="text"
+									class="auth__input"
+									placeholder="password"
+									required
+								/>
+							</div>
+							<div class="auth__policy">
+								By clicking the "Login" button, you agree to our
+								<a href="#">
+									Terms of Use</a>, 
+									as well as
+								<a href="#">Privacy Policy</a>
+							</div>
+							<button class="btn" type='submit' >To come in
+							</button>
+							<div class="auth__forget">Forgot password</div>
+						</form>
+					</div>
+
+					<!-- Register -->
+					<div class="auth__body auth__body--register {% if page != 'login' %}active{% endif %}">
+						<div class="auth__title">Registration</div>
+						{% if messages %}
+							{% for msg in messages %}
+								{% if msg.tags == 'warning' %}
+									<div class="auth__flash">{{msg}}</div>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<form action="{% url 'register_login' data='registration' %}" class="auth__form" method="POST">
+							{% csrf_token %}
+							{% for field in form %}
+								<div class="auth__input__box">
+									<label>{{field.label}}</label>
+									{{ field }}
+								</div>
+							{% endfor %}
+							{% comment %} <div class="auth__input__box">
+								<input
+									name='email'
+									type="email"
+									class="auth__input"
+									placeholder="Ваш e-mail"
+									required
+								/>
+							</div>
+							<div class="auth__input__box">
+								<input
+									name='username'
+									type="text"
+									class="auth__input"
+									placeholder="имя пользователя"
+									required
+								/>
+							</div>
+							<div class="auth__input__box">
+								<input
+									name='password1'
+									type="text"
+									class="auth__input"
+									placeholder="Пароль"
+									required
+								/>
+							</div>
+							<div class="auth__input__box">
+								<input
+									name='password2'
+									type="text"
+									class="auth__input"
+									placeholder="Повторите пароль"
+									required
+								/>
+							</div> {% endcomment %}
+							<button class="btn" typ='submit' >Continue</button>
+						</form>
+					</div>
+
+					<!-- SMS-confirm -->
+					<div class="auth__body auth__body--sms-confirm">
+						<div class="auth__title">Access recovery</div>
+						<!-- SMS Confirm Error Flash -->
+						<div class="auth__flash">
+							Enter the confirmation code you received by email
+mail
+						</div>
+						<form action="#" method="POST" class="auth__form">
+							<div class="auth__input__box">
+								<input
+									type="text"
+									class="auth__input"
+									placeholder="Kод подтверждения"
+									required
+								/>
+							</div>
+							<button class="btn">Continiue</button>
+						</form>
+					</div>
+
+					<!-- Success -->
+					<div class="auth__body auth__body--success">
+						<div class="auth__title">Registration</div>
+						<div class="auth__policy">
+							Read and accept our terms of use and policy
+privacy.
+						</div>
+						<a href="#" class="auth__link" target="_blank"
+							>Terms of use</a
+						>
+						<a href="#" class="auth__link last" target="_blank"
+							>
+							Privacy Policy</a
+						>
+						<a href="#" class="btn">I agree</a>
+					</div>
+
+					<!-- Password Restore -->
+					<div class="auth__body auth__body--restore">
+						<div class="auth__title">	Access recovery</div>
+						<!-- Password Restore Flash -->
+						<div class="auth__flash">
+							
+E-mail entered incorrectly, please enter again
+						</div>
+						<form action="#" method="POST" class="auth__form">
+							<div class="auth__input__box">
+								<input
+									type="email"
+									class="auth__input"
+									placeholder="Введите E-mail"
+									required
+								/>
+							</div>
+							<button class="btn">Continiue</button>
+						</form>
+					</div>
+
+					<!-- Password Update -->
+					<div class="auth__body auth__body--update">
+						<div class="auth__title">Access recovery</div>
+						<!-- Password Update Flash -->
+						<div class="auth__flash">
+							The verification code was entered incorrectly. Please try again
+in 2 minutes
+						</div>
+						<form action="#" method="POST" class="auth__form">
+							<div class="auth__input__box">
+								<input
+									type="text"
+									class="auth__input"
+									placeholder="Код подтверждения (email)"
+									required
+								/>
+							</div>
+							<div class="auth__input__box">
+								<input
+									type="text"
+									class="auth__input"
+									placeholder="Новый пароль"
+									required
+								/>
+							</div>
+							<div class="auth__input__box">
+								<input
+									type="text"
+									class="auth__input"
+									placeholder="Повторите пароль"
+									required
+								/>
+							</div>
+							<button class="btn">
+								Send again</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<script src="{% static 'auth/assets/js/app.js' %}"></script>
+	</body>
+</html>

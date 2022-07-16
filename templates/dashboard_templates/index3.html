@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Asosiy sahifa</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="cards">
+						<h1>My enrolled courses</h1>
+						{% for my_course in my_courses %}
+							<div class="card__wrapper">
+								<div class="card">
+									
+									<div class="about__box">
+										<img src="{{ my_course.image.url }}" alt="" />
+									</div> 
+									
+									<b>
+										{{ my_course.name }}
+									</b>
+									<p>Teacher: {{ my_course.teacher }}</p>
+									{% if user in my_course.finished_users %}
+										<span>Completed</span>	
+									{% else %}
+										<span>Active</span>	
+									{% endif %}
+									<a href="{% url 'info' pk=my_course.id %}" class="btn btn--sm">Continue</a>
+								</div>
+							</div>
+						{% endfor %}
+						{% comment %} <div class="card__wrapper">
+							<div class="card">
+								<p>
+									Matematikadan oliy ta’lim muassalari uchun tayyorgarlik kursi
+									
+								</p>
+								<span>2-dars</span>	
+								<a href="videos.html" class="btn btn--sm">Davom etish</a>
+							</div>
+						</div>
+						<div class="card__wrapper">
+							<div class="card">
+								<p>
+									Matematikadan oliy ta’lim muassalari uchun tayyorgarlik kursi
+									
+								</p>
+								<span>2-dars</span>	
+								<a href="videos.html" class="btn btn--sm">Davom etish</a>
+							</div>
+						</div>
+						<div class="card__wrapper">
+							<div class="card">
+								<p>
+									Ona tilidan oliy ta’lim muassalari uchun tayyorgarlik kursi
+								</p>
+								<span>5-dars</span>
+								<a href="videos.html" class="btn btn--sm">Davom etish</a>
+							</div>
+						</div> {% endcomment %}
+					</div>
+
+					{% comment %} <div class="stat">
+						<h1>Darsni o’zlashtirish ko’rsatkichlari</h1>
+						<div class="stat__inner owl-carousel">
+							<div class="stat__wrapper">
+								<div class="stat__box">
+									<h3>Matematika</h3>
+									<canvas class="chart"></canvas>
+								</div>
+							</div>
+							<div class="stat__wrapper">
+								<div class="stat__box">
+									<h3>Ona tili</h3>
+									<canvas class="chart"></canvas>
+								</div>
+							</div>
+							<div class="stat__wrapper">
+								<div class="stat__box">
+									<h3>Ingliz tili</h3>
+									<canvas class="chart"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- charts data -->
+					<div class="data__container" style="display: none">
+						<div
+							class="data"
+							data-color="#FFA097"
+							data-lessons="12"
+							data-scores="55,20,45,30,40,50,60,50,40,70,70,60,70"
+						></div>
+						<div
+							class="data"
+							data-color="#A5D9A1"
+							data-lessons="6"
+							data-scores="65,30,45,30,55,65,60"
+						></div>
+						<div
+							class="data"
+							data-color="#6C8A9B"
+							data-lessons="8"
+							data-scores="65,30,45,30,55,65,60,30,45"
+						></div>
+					</div> {% endcomment %}
+				</div>
+			</main>
+		</div>
+
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

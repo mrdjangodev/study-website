@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Video qo&#x27;llanmalar</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<!-- body -->
+
+				<!-- modal -->
+				<div class="modal modal--error active">
+					<div class="modal__box modal__box--mini">
+						<img src="assets/img/warning.svg" alt="" />
+						<p>Чтобы открыть следуюший модуль нужно проходить тестирование</p>
+						<i class="bx bx-x-circle"></i>
+					</div>
+				</div>
+
+				<div class="video">
+					<div class="video__head">
+						<a href="#" class="active">
+							<span>1</span>
+							<p>Презентация</p>
+						</a>
+						<a class="disabled">
+							<span>2</span>
+							<p>Просмотр видео</p>
+							<i class="bx bx-lock-alt"></i>
+						</a>
+						<a class="disabled">
+							<span>3</span>
+							<p>Изучение документов</p>
+							<i class="bx bx-lock-alt"></i>
+						</a>
+						<a class="disabled">
+							<span>4</span>
+							<p>Тестирование</p>
+							<i class="bx bx-lock-alt"></i>
+						</a>
+						<a class="disabled">
+							<span>5</span>
+							<p>Просмотр видео</p>
+							<i class="bx bx-lock-alt"></i>
+						</a>
+					</div>
+					<video
+						controls
+						crossorigin
+						playsinline
+						poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+					>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+							type="video/mp4"
+							size="576"
+						/>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
+							type="video/mp4"
+							size="720"
+						/>
+						<source
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+							type="video/mp4"
+							size="1080"
+						/>
+
+						<!-- Caption files -->
+						<track
+							kind="captions"
+							label="English"
+							srclang="en"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+							default
+						/>
+						<track
+							kind="captions"
+							label="Français"
+							srclang="fr"
+							src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+						/>
+					</video>
+					<div class="video__content">
+						<h1>Вот будет название этой презентации</h1>
+						<p>
+							Давно выяснено, что при оценке дизайна и композиции читаемый текст
+							мешает сосредоточиться. Lorem Ipsum используют потому, что тот
+							обеспечивает более или менее стандартное заполнение шаблона, а
+							также реальное распределение букв и пробелов в абзацах, которое не
+							получается при простой дубликации "Здесь ваш текст.. Здесь ваш
+							текст.. Здесь ваш текст.." Многие программы электронной вёрстки и
+							редакторы HTML используют Lorem Ipsum в качестве текста по
+							умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу
+							показывает, как много веб-страниц всё ещё дожидаются своего
+							настоящего рождения. За прошедшие годы текст Lorem Ipsum получил
+							много версий. Некоторые версии появились по ошибке, некоторые -
+							намеренно (например, юмористические варианты).
+						</p>
+						<p>
+							Давно выяснено, что при оценке дизайна и композиции читаемый текст
+							мешает сосредоточиться. Lorem Ipsum используют потому, что тот
+							обеспечивает более или менее стандартное заполнение шаблона, а
+							также реальное распределение букв и пробелов в абзацах, которое не
+							получается при простой дубликации "Здесь ваш текст.. Здесь ваш
+							текст.. Здесь ваш текст.." Многие программы электронной вёрстки и
+							редакторы HTML используют Lorem Ipsum в качестве текста по
+							умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу
+							показывает, как много веб-страниц всё ещё дожидаются своего
+							настоящего рождения. За прошедшие годы текст Lorem Ipsum получил
+							много версий. Некоторые версии появились по ошибке, некоторые -
+							намеренно (например, юмористические варианты).
+						</p>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

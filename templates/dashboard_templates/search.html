@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Qidiruv natijalari</title>
+	<body>
+		<div class="page">
+			<!-- modal -->
+			<!-- modal -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="links">
+						<h1>Ссылки</h1>
+						<p style="display: none">
+							Quyidagi so’rov bo’yicha havolalar mavjud emas
+						</p>
+						<div class="link">
+							<ul>
+								<li><a href="dashboard.html">Sozlamalar</a></li>
+								<li><i class="bx bx-chevron-right"></i></li>
+								<li>
+									<a href="dashboard-password-change.html"
+										>Parolni o'zgartirish</a
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="result">
+						<div class="result__head">
+							<h1>Другие</h1>
+							<div class="result__badge">
+								<div class="result__current">
+									<div class="result__name">Yangilari bo'yicha</div>
+									<div class="result__triangle"></div>
+								</div>
+								<form action="#" class="result__list">
+									<label for="result-newest">Yangilari bo'yicha</label>
+									<input
+										style="display: none"
+										type="radio"
+										id="result-newest"
+										onchange="this.form.submit()"
+									/>
+									<label for="result-oldest">Eskilari bo'yicha</label>
+									<input
+										style="display: none"
+										type="radio"
+										id="result-oldest"
+										onchange="this.form.submit()"
+									/>
+								</form>
+							</div>
+						</div>
+						<div class="result__box">
+							<div class="result__content">
+								<p>
+									Tarix fanidan oliy ta’lim muassalari uchun tayyorgarlik kursi
+								</p>
+								<span
+									>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									Voluptatibus, dignissimos!</span
+								>
+							</div>
+							<a href="info.html" class="btn">Batafsil</a>
+						</div>
+						<p style="display: none">
+							Quyidagi so’rov bo’yicha kurslar mavjud emas
+						</p>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>

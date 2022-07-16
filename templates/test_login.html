@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<header>
+    <title>test login</title>
+</header>
+<body>
+    <form action='#' method=POST>
+        {% csrf_token %}
+        <input name='email' type='email'>
+        <input name='password', type='text'>
+        <button type='submit'>Dale</button>
+    </form>
+</body>
+</html>

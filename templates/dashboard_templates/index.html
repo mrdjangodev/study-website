@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'dashboard_templates/helper/dashboard_header.html' %}
+	<title>Asosiy sahifa</title>
+	<body>
+		<div class="page">
+			
+
+			<!-- sidebar -->
+			{% include 'dashboard_templates/helper/dashboard_navbar.html' %}
+			<div class="cancel__bg"></div>
+		
+
+				<div class="container">
+					<!-- body -->
+
+					<div class="items">
+						<div class="item__wrapper">
+							<a href="{% url 'change-user-info' %}" class="item item--info">
+								<div class="item__left">
+									<div class="item__photo">
+										{% if user.avatar %}
+											<img src="{{user.avatar.url}}"/>
+										{%else%}
+											<img src="{% static 'dashboard/assets/img/avatar-filled.png' %}" alt="" />
+										{% endif %}
+									</div>
+									<span class="item__link">edit</span>
+								</div>
+								<div class="item__right">
+									<div class="item__fish">{{user.first_name}}  {{user.last_name}}</div>
+									<div class="item__mail">
+										E-mail:
+										<span>{{user.email}}</span>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item__wrapper">
+							<a href="#" class="item">
+								<div class="item__icon">
+									<i class="bx bx-book-open"></i>
+								</div>
+								<div class="item__content">
+									<b>{{active_courses.count}}</b>
+									<span>Enrolled Courses</span>
+								</div>
+							</a>
+						</div>
+						<div class="item__wrapper">
+							<a href="#" class="item">
+								<div class="item__icon">
+									<i class="bx bx-slideshow"></i>
+								</div>
+								<div class="item__content">
+									<b>{{active_courses.count}}</b>
+									<span>Active Courses</span>
+								</div>
+							</a>
+						</div>
+						<div class="item__wrapper">
+							<a href="#" class="item">
+								<div class="item__icon">
+									<i class="bx bx-check-circle"></i>
+								</div>
+								<div class="item__content">
+									<b>{{complated_courses.count}}</b>
+									<span>Completed Courses</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- scripts -->
+		<!-- CDN jquery -->
+		{% include 'dashboard_templates/helper/dashboard_footer.html' %}
+	</body>
+</html>
